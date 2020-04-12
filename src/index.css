@@ -27,5 +27,8 @@ h1 {
 #zoom:hover {
   transform: scale(1.6);
 }
+.container {
+  height: 100%;
+}
 
 
