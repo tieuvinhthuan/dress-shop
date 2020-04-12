@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "sku": 101,
+      "p_code": 101,
       "title": "Gigima Dress",
       "desc": "White Gigima",
       "availableSizes": ["M", "X", "L", "XXL"],
@@ -12,7 +12,7 @@
 
     {
       "id": 2,
-      "sku": 102,
+      "p_code": 102,
       "title": "Talio Dress",
       "desc": "Pink Talio",
       "availableSizes": ["X", "XS", "XL"],
@@ -22,7 +22,7 @@
 
     {
       "id": 3,
-      "sku": 103,
+      "p_code": 103,
       "title": "Lency Dress",
       "desc": "Grey Lency",
       "availableSizes": ["XL", "XS", "L"],
@@ -32,7 +32,7 @@
 
     {
       "id": 4,
-      "sku": 104,
+      "p_code": 104,
       "title": "Maison Puma Dress",
       "desc": "Maison Puma",
       "availableSizes": ["XL", "M", "X"],
@@ -42,7 +42,7 @@
 
     {
       "id": 5,
-      "sku": 105,
+      "p_code": 105,
       "title": "Kendan Dress",
       "desc": "Kendan",
       "availableSizes": ["S", "M", "XL"],
@@ -52,7 +52,7 @@
 
     {
       "id": 6,
-      "sku": 106,
+      "p_code": 106,
       "title": "Bohemian Javit Dress",
       "desc": "Bohemian Javit",
       "availableSizes": ["M", "L", "XXL"],
@@ -62,7 +62,7 @@
 
     {
       "id": 7,
-      "sku": 107,
+      "p_code": 107,
       "title": "Bortino Dress",
       "desc": "Bortino",
       "availableSizes": ["S", "M", "XL" ],
@@ -73,7 +73,7 @@
 
     {
       "id": 8,
-      "sku": 108,
+      "p_code": 108,
       "title": "Vimita Dress",
       "desc": "Vimita",
       "availableSizes": ["M", "L"],
@@ -83,7 +83,7 @@
     },
     {
       "id": 9,
-      "sku": 109,
+      "p_code": 109,
       "title": "Moltery Dress",
       "desc": "",
       "availableSizes": ["XS", "S", "XL"],
@@ -92,7 +92,7 @@
     },
     {
       "id": 10,
-      "sku": 110,
+      "p_code": 110,
       "title": "Parteno Dress",
       "desc": "",
       "availableSizes": ["M", "S", "XS"],
@@ -101,7 +101,7 @@
     },
     {
       "id": 11,
-      "sku": 111,
+      "p_code": 111,
       "title": "Panemi Dress",
       "desc": "",
       "availableSizes": ["L", "XXL"],
@@ -110,7 +110,7 @@
     },
     {
       "id": 12,
-      "sku": 112,
+      "p_code": 112,
       "title": "Berguton Dress",
       "desc": "Berguton Dress",
       "availableSizes": ["M", "S", "L"],

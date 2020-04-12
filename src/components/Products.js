@@ -11,15 +11,16 @@ export default class Products extends Component {
         const productItems = this.props.products.map(product => (
             <div className="col-md-3" key={product.id}>
                 <div className="thumbnail text-center">
-                        <img src={`products/${product.sku}_2.jpg`} alt={product.title} />
-                        
-                        <p>{product.title} <br/>      
-                            <a href={`products/${product.sku}_1.jpg` } target="_blank" rel="noopener noreferrer">
-                                See this product
-                            </a> <br/>
-                            <b>{util.formatCurrency(product.price)}</b> <br/>                                     
-                            <button className="btn btn-success" onClick={(e)=>this.props.handleAddToCart(e, product)}>Add to cart</button>
-                        </p>
+                
+                    <img id="zoom" src={`products/${product.p_code}_1.jpg`} alt={product.title} />
+                
+                    <p>{product.title} <br/>      
+                        <a href={`products/${product.p_code}_1.jpg` } target="_blank" rel="noopener noreferrer">
+                            See this product
+                        </a> <br/>
+                        <b>{util.formatCurrency(product.price)}</b> <br/>                                     
+                        <button className="btn btn-success" onClick={(e)=>this.props.handleAddToCart(e, product)}>Add to cart</button>
+                    </p>
                           
                 </div>
             </div>
@@ -30,5 +31,7 @@ export default class Products extends Component {
                 {productItems}
             </div>
         )
+
+        
     }
 }
