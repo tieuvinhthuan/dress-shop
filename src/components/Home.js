@@ -4,36 +4,43 @@ import Products from './Products'
 import Cart from './Cart'
 import 'bootswatch/dist/cerulean/bootstrap.min.css'
 
-export default class Home extends Component {
-  constructor() {
-    super();
-    this.state = {
-      size: "",
-      sort: "",
-      cartItems: [],
-      products: [],
-      filteredProducts: []
-    };
-  }
-  componentWillMount() {
-    if (localStorage.getItem("cartItems")) {
-      this.setState({
-        cartItems: JSON.parse(localStorage.getItem("cartItems"))
-      });
-    }
 
-    fetch("http://localhost:8000/products")
-      .then(res => res.json())
-      .catch(err =>
-        fetch("dataBase.json")
-          .then(res => res.json())
-          .then(data => data.products)
-      )
-      .then(data => {
-        this.setState({ products: data });
-        this.listProducts();
-      });
+class Home extends Component {
+
+constructor() {
+  super();
+  this.state = {
+    size: "",
+    sort: "",
+    cartItems: [],
+    products: [],
+    filteredProducts: []
+  };
+}
+
+componentWillMount() {
+  
+  
+  if (localStorage.getItem("cartItems")) {
+    this.setState({
+      cartItems: JSON.parse(localStorage.getItem("cartItems"))
+    });
   }
+  
+  fetch("http://localhost:8000/products")
+  .then(res => res.json())
+  .catch(err =>
+    fetch("dataBase.json")
+    .then(res => res.json())
+    .then(data => data.products)
+    )
+    .then(data => {
+      this.setState({ products: data });
+      this.listProducts();
+    });
+    
+  }
+  
   handleRemoveFromCart = (e, product) => {
     this.setState(state => {
       const cartItems = state.cartItems.filter(a => a.id !== product.id);
@@ -41,19 +48,21 @@ export default class Home extends Component {
       return { cartItems: cartItems };
     });
   };
-
+  
   handleAddToCart = (e, product) => {
     this.setState(state => {
       const cartItems = state.cartItems;
       let productAlreadyInCart = false;
-
+      
       cartItems.forEach(cp => {
+        
         if (cp.id === product.id) {
           cp.count += 1;
+          
           productAlreadyInCart = true;
         }
       });
-
+      
       if (!productAlreadyInCart) {
         cartItems.push({ ...product, count: 1 });
       }
@@ -61,18 +70,18 @@ export default class Home extends Component {
       return { cartItems: cartItems };
     });
   };
-
+  
   listProducts = () => {
     this.setState(state => {
       if (state.sort !== "") {
         state.products.sort((a, b) =>
-          state.sort === "lowestprice"
-            ? a.price > b.price
-              ? 1
-              : -1
-            : a.price < b.price
-            ? 1
-            : -1
+        state.sort === "lowestprice"
+        ? a.price > b.price
+        ? 1
+        : -1
+        : a.price < b.price
+        ? 1
+        : -1
         );
       } else {
         state.products.sort((a, b) => (a.id > b.id ? 1 : -1));
@@ -81,12 +90,14 @@ export default class Home extends Component {
         return {
           filteredProducts: state.products.filter(
             a => a.availableSizes.indexOf(state.size.toUpperCase()) >= 0
-          )
-        };
-      }
-      return { filteredProducts: state.products };
-    });
+            )
+          };
+        }
+        return { filteredProducts: state.products };
+      });
   };
+  
+
   handleSortChange = e => {
     this.setState({ sort: e.target.value });
     this.listProducts();
@@ -95,29 +106,38 @@ export default class Home extends Component {
     this.setState({ size: e.target.value });
     this.listProducts();
   };
+  
+  
+    render() {
 
-  render() {
-    return (
-      <div className="container">
+
+      return (
+        <div className="container">
         <h1></h1>
         <hr/>
         <Filter 
-          count={this.state.filteredProducts.length}
-          handleSortChange={this.handleSortChange}
-          handleSizeChange={this.handleSizeChange}
-        />
-        <hr/>
-        <Products
-          products={this.state.filteredProducts}
-          handleAddToCart={this.handleAddToCart}
-        />
-
-        <Cart
-          cartItems={this.state.cartItems}
-          handleRemoveFromCart={this.handleRemoveFromCart}
-        />
-
+        count={this.state.filteredProducts.length}
+      handleSortChange={this.handleSortChange}
+      handleSizeChange={this.handleSizeChange}
+      />
+      <hr/>
+      <Products
+      products={this.state.filteredProducts}
+      handleAddToCart={this.handleAddToCart}
+      />
+      
+      <Cart
+      cartItems={this.state.cartItems}
+      handleRemoveFromCart={this.handleRemoveFromCart}
+      />
+      
       </div>
-    )
-  }
-}
+      )
+      
+    }
+    
+  };
+  
+  
+  
+  export default Home;

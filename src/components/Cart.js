@@ -20,7 +20,7 @@ export default class Cart extends Component {
                                     <button style={{ float: 'right' }} className="btn btn-warning btn-xs"
                                         onClick={(e) => this.props.handleRemoveFromCart(e, item)}>Remove</button>
                                     <br />
-                                    {item.count} X {util.formatCurrency(item.price)}
+                                    {item.count/2} X {util.formatCurrency(item.price)}
                                 </li>))
                             }
                         </ul>

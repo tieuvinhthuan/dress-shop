@@ -7,7 +7,8 @@ import M from  'materialize-css/dist/js/materialize.min.js';
 
 
 class App extends Component {
-  componentDidMount() {
+  
+  componentDidMount () {
     let sidenav = document.querySelector('#mobile');
     M.Sidenav.init(sidenav, {edge:'right'});
   }

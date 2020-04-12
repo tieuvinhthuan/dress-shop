@@ -15,10 +15,13 @@ const Navbar = (props) => {
          
         </ul>
       </div>
+
+
       <ul className="sidenav" id="mobile">
         <li><NavLink exact to="/">Main Page</NavLink></li>
         <li><NavLink to='/about'>About</NavLink></li>
       </ul>
+      
     </nav>
     
     
